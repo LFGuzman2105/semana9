@@ -1,0 +1,24 @@
+<div id="general">
+    <h2>FORMULARIO DE MASCOTAS</h2>
+    <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <mat-icon matPrefix>pets</mat-icon>
+        <input matInput placeholder="" [(ngModel)]="nombre" required>
+        @if (nombre) {
+            <button matSuffix mat-icon-button aria-label="Clear" (click)="nombre=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        }
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Raza</mat-label>
+        <mat-select [(ngModel)]="raza">
+            <mat-option value="Perro">Perro</mat-option>
+            <mat-option value="Gato">Gato</mat-option>
+            <mat-option value="Ave">Ave</mat-option>
+            <mat-option value="Pez">Pez</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="grabar()">GRABAR</button>
+</div>

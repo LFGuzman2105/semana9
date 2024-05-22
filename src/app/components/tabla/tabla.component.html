@@ -1,0 +1,35 @@
+<div id="general">
+    <h2>LISTADO DE ANIMALES</h2>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let animal"> {{animal.getNombre()}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="raza">
+            <th mat-header-cell *matHeaderCellDef> Raza </th>
+            <td mat-cell *matCellDef="let animal"> {{animal.getRaza()}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="borrar">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let animal">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="borrar(animal)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let animal">
+                <button matSuffix mat-icon-button aria-label="Clear" routerLink="/formulario" (click)="editar(animal)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
